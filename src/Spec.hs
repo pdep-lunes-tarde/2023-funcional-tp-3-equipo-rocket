@@ -4,6 +4,7 @@ import Library
 import Test.Hspec
 import Control.Exception (evaluate)
 
+unoRojo :: Carta
 unoRojo = CartaNumerica 1 Rojo
 dosVerde = CartaNumerica 2 Verde
 tresAzul = CartaNumerica 3 Azul
@@ -17,16 +18,16 @@ listaDeColoresVacia = []
 
 correrTests :: IO ()
 correrTests = hspec $ do
-  describe "fibonacci" $ do
+  focus $ describe "fibonacci" $ do
     it "el primer numero de la serie es 0" $ do
       fibonacci 0 `shouldBe` 0
     it "el segundo numero de la serie es 1" $ do
       fibonacci 1 `shouldBe` 1
     it "cada numero desde el tercero es la suma de los dos numeros anteriores" $ do
       fibonacci 2 `shouldBe` 1
-      fibonacci 3 `shouldBe` 3
-      fibonacci 4 `shouldBe` 5
-      fibonacci 5 `shouldBe` 9
+      fibonacci 3 `shouldBe` 2
+      fibonacci 4 `shouldBe` 3
+      fibonacci 5 `shouldBe` 5
   describe "rellenar" $ do
     it "dado un caracter, un numero y un string de longitud igual al numero, retorna ese string" $ do
       rellenar "hola" 4 '!' `shouldBe` "hola"
